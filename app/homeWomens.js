@@ -1,3 +1,4 @@
+import axios from "axios";
 import { router } from "expo-router";
 import { useState } from "react";
 import {
@@ -32,8 +33,8 @@ export default function Home() {
 
         const url = `https://dummyjson.com/products/category/womens-${categoria}`;
 
-        const response = await fetch(url);
-        const data = await response.json();
+        const response = await axios.get(url);
+        const data = await response.data;
 
         setProdutos(data.products);
 
